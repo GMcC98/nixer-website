@@ -85,28 +85,72 @@
   display: block;
 }
 
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+  cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #222;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: block;
+  font-size: 0.95rem;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
   </style>
-</head>
-<body>
-  <!-- Header & Navigation -->
 <header>
   <div class="logo">
     <a href="https://nixer.ai">
-      <img src="logo.svg" alt="Nixer Logo">
+      <img src="nixer.svg" alt="Nixer Logo">
     </a>
   </div>
-  <!-- Left Navigation Links -->
   <nav class="nav-left">
-    <a href="solutions.html">Solutions</a>
+    <!-- Dropdown for Solutions -->
+    <div class="dropdown">
+      <a href="solutions.html" class="dropbtn">Solutions</a>
+      <div class="dropdown-content">
+        <a href="ourmodel.html">Our Model</a>
+        <!-- Add more dropdown options here if needed -->
+      </div>
+    </div>
     <a href="company.html">Company</a>
     <a href="support.html">Support</a>
   </nav>
-  <!-- Right Navigation Links -->
   <nav class="nav-right">
     <a href="login.html">Login</a>
     <a href="signup.html">Sign Up</a>
   </nav>
 </header>
+
 
 
   <!-- Main Content -->
