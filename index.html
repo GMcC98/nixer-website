@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nixer | Home</title>
-  <!-- Link to Montserrat from Google Fonts -->
+  <!-- Using Montserrat from Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
     /* Global Styles */
@@ -32,30 +32,75 @@
       top: 0;
       z-index: 100;
     }
-    .nav-left,
-    .nav-right {
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-right: 1.5rem;
+    }
+    .logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+    .nav-left, .nav-right {
       display: flex;
       align-items: center;
     }
-    .nav-left a, .nav-right a {
+    /* Ensure navigation items are spaced out */
+    .nav-left a,
+    .dropdown {
       margin-right: 1.5rem;
       font-weight: 500;
       font-size: 0.95rem;
       transition: color 0.2s ease;
     }
     .nav-right a {
-      margin-right: 0;
       margin-left: 1.5rem;
+      margin-right: 0;
       font-weight: 600;
     }
     .nav-left a:hover, .nav-right a:hover {
-      color: #0070f3; /* Accent color on hover */
+      color: #0070f3;
+    }
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropbtn {
+      cursor: default; /* Not clickable */
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fff;
+      min-width: 150px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown-content a {
+      color: #222;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      display: block;
+      font-size: 0.95rem;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
     /* Main Content */
     main {
       padding: 2rem;
       max-width: 900px;
       margin: 0 auto;
+      text-align: center;
     }
     h1 {
       font-size: 2.5rem;
@@ -63,6 +108,7 @@
     }
     p {
       font-size: 1rem;
+      margin-bottom: 1rem;
     }
     /* Footer */
     footer {
@@ -72,92 +118,42 @@
       font-size: 0.9rem;
       margin-top: 2rem;
     }
-	
-	.logo {
-  display: flex;
-  align-items: center;
-  margin-right: 1.5rem; /* Adjust spacing as needed */
-}
-
-.logo img {
-  height: 40px; /* Set the desired height */
-  width: auto;
-  display: block;
-}
-
-/* Dropdown container */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown button */
-.dropbtn {
-  cursor: pointer;
-}
-
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  min-width: 150px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: #222;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  display: block;
-  font-size: 0.95rem;
-}
-
-/* Hover effect for dropdown items */
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
-
-/* Show the dropdown on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-
   </style>
-<header>
-  <div class="logo">
-    <a href="https://nixer.ai">
-      <img src="logo.svg" alt="Nixer Logo">
-    </a>
-  </div>
-  <nav class="nav-left">
-    <!-- Dropdown for Solutions -->
-    <div class="dropdown">
-      <a href="solutions.html" class="dropbtn">Solutions</a>
-      <div class="dropdown-content">
-        <a href="model.html">Our Model</a>
-        <!-- Add more dropdown options here if needed -->
-      </div>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <a href="https://nixer.ai">
+        <img src="logo.svg" alt="Nixer Logo">
+      </a>
     </div>
-    <a href="company.html">Company</a>
-    <a href="support.html">Support</a>
-  </nav>
-  <nav class="nav-right">
-    <a href="login.html">Login</a>
-    <a href="signup.html">Sign Up</a>
-  </nav>
-</header>
-
-
+    <nav class="nav-left">
+      <div class="dropdown">
+        <span class="dropbtn">Solutions</span>
+        <div class="dropdown-content">
+          <a href="model.html">Our Model</a>
+          <a href="business_verification.html">Business Verification</a>
+          <a href="domain_verification.html">Domain Verification</a>
+        </div>
+      </div>
+      <a href="company.html">Company</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <nav class="nav-right">
+      <a href="login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
+  </header>
 
   <!-- Main Content -->
   <main>
     <h1>Welcome to Nixer</h1>
-    <p>Your minimalist and edgy hub for business intelligence and data insights.</p>
-    <p>Explore our solutions, learn about our company, and get support whenever you need it.</p>
+    <p>Your minimalist hub for business intelligence and risk assessment.</p>
+    <p>
+      Explore our solutions through the navigation above. Learn more about our unique model,
+      verify businesses and domains, and see how we apply cutting-edge risk analysis in today's market.
+    </p>
   </main>
 
   <!-- Footer -->
