@@ -66,11 +66,15 @@
       display: inline-block;
     }
     .dropbtn {
-      cursor: pointer;
+      cursor: default;  /* Not clickable */
+      font-weight: 500;
+      font-size: 0.95rem;
     }
     .dropdown-content {
       display: none;
       position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       background-color: #fff;
       min-width: 150px;
       box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
@@ -143,7 +147,8 @@
     </div>
     <nav class="nav-left">
       <div class="dropdown">
-        <a href="solutions.html" class="dropbtn">Solutions</a>
+        <!-- Solutions is now a non-clickable span -->
+        <span class="dropbtn">Solutions</span>
         <div class="dropdown-content">
           <a href="ourmodel.html">Our Model</a>
           <!-- Additional dropdown options can be added here -->
@@ -170,7 +175,7 @@
         <a href="https://www.transparency.org/en/cpi/2024" target="_blank">Transparency International</a>.
       </p>
       <p>
-        Transparency International gathers data from expert assessments and opinion surveys to evaluate the perceived level of public sector corruption in over 180 countries. The CPI scores range from 0 (highly corrupt) to 100 (very clean). Our model leverages this data to assess risk:
+        Transparency International gathers data from expert assessments and opinion surveys to evaluate the perceived level of public sector corruption in over 180 countries. The CPI scores range from 0 (highly corrupt) to 100 (very clean). Our model leverages this data to assess risk in each country.
       </p>
       <table>
         <tr>
@@ -181,7 +186,7 @@
         <tr>
           <td>Transparency International</td>
           <td>Corruption Perceptions Index (CPI) 2024</td>
-          <td>Combines expert assessments and opinion surveys to produce a score reflecting the perceived corruption level in a country's public sector.</td>
+          <td>Combines expert assessments and opinion surveys to produce a score reflecting the perceived corruption in a country's public sector.</td>
         </tr>
       </table>
     </section>
@@ -410,6 +415,12 @@
           <td>20</td>
         </tr>
       </table>
+      <!-- Data Accuracy Note -->
+      <p style="text-align:center; margin-top:1rem;">
+        This data is accurate as of <b><script>
+          document.write(new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }));
+        </script></b>.
+      </p>
     </section>
   </main>
 
