@@ -4,23 +4,96 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nixer | Our Model</title>
-  <!-- Modern Font: Montserrat -->
+  <!-- Using Montserrat from Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* Global Styles */
     body {
+      margin: 0;
+      padding: 0;
       font-family: 'Montserrat', sans-serif;
-      margin: 2rem;
       background-color: #fff;
       color: #222;
+      line-height: 1.6;
     }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Header & Navigation */
     header {
-      background: #fff;
-      padding: 1rem;
+      background-color: #fff;
       border-bottom: 1px solid #eaeaea;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-right: 1.5rem;
+    }
+    .logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+    .nav-left, .nav-right {
+      display: flex;
+      align-items: center;
+    }
+    .nav-left a, .nav-right a {
+      margin-right: 1.5rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+    .nav-right a {
+      margin-left: 1.5rem;
+      margin-right: 0;
+      font-weight: 600;
+    }
+    .nav-left a:hover, .nav-right a:hover {
+      color: #0070f3;
+    }
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropbtn {
+      cursor: pointer;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 150px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown-content a {
+      color: #222;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      display: block;
+      font-size: 0.95rem;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    /* Main Content */
     main {
+      padding: 2rem;
       max-width: 900px;
-      margin: 2rem auto;
+      margin: 0 auto;
     }
     h1, h2 {
       margin-bottom: 1rem;
@@ -28,6 +101,7 @@
     p {
       margin-bottom: 1rem;
     }
+    /* Table Styles */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -43,55 +117,276 @@
     th {
       background-color: #f4f4f4;
     }
+    /* Section Headings */
+    .section-heading {
+      margin-top: 2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #0070f3;
+    }
+    /* Footer */
     footer {
       text-align: center;
       padding: 1rem;
       border-top: 1px solid #eaeaea;
-      margin-top: 2rem;
       font-size: 0.9rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <h1>Nixer - Our Model</h1>
+    <div class="logo">
+      <a href="https://nixer.ai">
+        <img src="logo.svg" alt="Nixer Logo">
+      </a>
+    </div>
+    <nav class="nav-left">
+      <div class="dropdown">
+        <a href="solutions.html" class="dropbtn">Solutions</a>
+        <div class="dropdown-content">
+          <a href="model.html">Our Model</a>
+          <!-- Add more dropdown options if needed -->
+        </div>
+      </div>
+      <a href="company.html">Company</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <nav class="nav-right">
+      <a href="login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+    </nav>
   </header>
+
+  <!-- Main Content -->
   <main>
-    <h2>Risk Model Overview</h2>
-    <p>
-      Our risk model is based on the Corruption Perceptions Index (CPI) published by 
-      <a href="https://www.transparency.org/en/cpi/2024" target="_blank">Transparency International</a>.
-      The CPI measures the perceived levels of public sector corruption in countries worldwide.
-    </p>
-    <h2>Current Risk Index</h2>
-    <p>
-      Below is an up-to-date table of the current risk index. We use this data as a key feature to determine our approach to due diligence in each country.
-    </p>
-    <table>
-      <tr>
-        <th>Country</th>
-        <th>Score</th>
-        <th>Rank</th>
-      </tr>
-      <!-- Sample Data: Replace with actual data or dynamically update as needed -->
-      <tr>
-        <td>Denmark</td>
-        <td>88</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>New Zealand</td>
-        <td>87</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>Finland</td>
-        <td>85</td>
-        <td>3</td>
-      </tr>
-      <!-- Add more rows as needed -->
-    </table>
+    <h1>Our Model</h1>
+    <section>
+      <h2 class="section-heading">Highest Risk Countries (Top 20)</h2>
+      <p><em>Lower scores indicate higher risk. This table shows the countries with the greatest risk according to our model.</em></p>
+      <table>
+        <tr>
+          <th>Country</th>
+          <th>Score</th>
+          <th>Rank</th>
+        </tr>
+        <tr>
+          <td>South Sudan</td>
+          <td>8</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Somalia</td>
+          <td>9</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Afghanistan</td>
+          <td>10</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Yemen</td>
+          <td>11</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Sudan</td>
+          <td>12</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Libya</td>
+          <td>13</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>North Korea</td>
+          <td>14</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>Venezuela</td>
+          <td>15</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>Haiti</td>
+          <td>16</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>Central African Republic</td>
+          <td>17</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Democratic Republic of Congo</td>
+          <td>18</td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <td>Zimbabwe</td>
+          <td>19</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>Guinea</td>
+          <td>20</td>
+          <td>13</td>
+        </tr>
+        <tr>
+          <td>Nigeria</td>
+          <td>21</td>
+          <td>14</td>
+        </tr>
+        <tr>
+          <td>Chad</td>
+          <td>22</td>
+          <td>15</td>
+        </tr>
+        <tr>
+          <td>Eritrea</td>
+          <td>23</td>
+          <td>16</td>
+        </tr>
+        <tr>
+          <td>Pakistan</td>
+          <td>24</td>
+          <td>17</td>
+        </tr>
+        <tr>
+          <td>Myanmar</td>
+          <td>25</td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Iraq</td>
+          <td>26</td>
+          <td>19</td>
+        </tr>
+        <tr>
+          <td>Burundi</td>
+          <td>27</td>
+          <td>20</td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2 class="section-heading">Lowest Risk Countries (Top 20 Safest)</h2>
+      <p><em>Higher scores indicate lower risk. This table shows the safest countries based on our model.</em></p>
+      <table>
+        <tr>
+          <th>Country</th>
+          <th>Score</th>
+          <th>Rank</th>
+        </tr>
+        <tr>
+          <td>Denmark</td>
+          <td>90</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Finland</td>
+          <td>89</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>New Zealand</td>
+          <td>88</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Singapore</td>
+          <td>87</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Sweden</td>
+          <td>86</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Norway</td>
+          <td>85</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>Switzerland</td>
+          <td>84</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>Canada</td>
+          <td>83</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>Netherlands</td>
+          <td>82</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>Germany</td>
+          <td>81</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Australia</td>
+          <td>80</td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <td>United Kingdom</td>
+          <td>79</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>Austria</td>
+          <td>78</td>
+          <td>13</td>
+        </tr>
+        <tr>
+          <td>Luxembourg</td>
+          <td>77</td>
+          <td>14</td>
+        </tr>
+        <tr>
+          <td>Iceland</td>
+          <td>76</td>
+          <td>15</td>
+        </tr>
+        <tr>
+          <td>Japan</td>
+          <td>75</td>
+          <td>16</td>
+        </tr>
+        <tr>
+          <td>Ireland</td>
+          <td>74</td>
+          <td>17</td>
+        </tr>
+        <tr>
+          <td>France</td>
+          <td>73</td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Belgium</td>
+          <td>72</td>
+          <td>19</td>
+        </tr>
+        <tr>
+          <td>United States</td>
+          <td>71</td>
+          <td>20</td>
+        </tr>
+      </table>
+    </section>
   </main>
+
+  <!-- Footer -->
   <footer>
     &copy; 2025 Nixer. All rights reserved.
   </footer>
