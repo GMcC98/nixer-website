@@ -46,11 +46,9 @@
       display: flex;
       align-items: center;
     }
-    /* Prevent left navigation from wrapping */
-    .nav-left {
-      flex-wrap: nowrap;
-    }
-    .nav-left a, .nav-right a {
+    /* Ensure dropdown container gets margin too */
+    .nav-left a,
+    .dropdown {
       margin-right: 1.5rem;
       font-weight: 500;
       font-size: 0.95rem;
@@ -70,7 +68,7 @@
       display: inline-block;
     }
     .dropbtn {
-      cursor: default;  /* Not clickable */
+      cursor: default; /* Not clickable */
       font-weight: 500;
       font-size: 0.95rem;
     }
@@ -151,11 +149,12 @@
     </div>
     <nav class="nav-left">
       <div class="dropdown">
-        <!-- Solutions is non-clickable -->
+        <!-- Solutions is now a non-clickable span -->
         <span class="dropbtn">Solutions</span>
         <div class="dropdown-content">
           <a href="model.html">Our Model</a>
-          <!-- Additional dropdown options can be added here -->
+          <a href="business_verification.html">Business Verification</a>
+          <a href="domain_verification.html">Domain Verification</a>
         </div>
       </div>
       <a href="company.html">Company</a>
@@ -205,7 +204,6 @@
           <th>Score</th>
           <th>Rank</th>
         </tr>
-        <!-- Sample Highest Risk Data -->
         <tr><td>South Sudan</td><td>8</td><td>1</td></tr>
         <tr><td>Somalia</td><td>9</td><td>2</td></tr>
         <tr><td>Afghanistan</td><td>10</td><td>3</td></tr>
@@ -239,7 +237,6 @@
           <th>Score</th>
           <th>Rank</th>
         </tr>
-        <!-- Sample Lowest Risk Data -->
         <tr><td>Denmark</td><td>90</td><td>1</td></tr>
         <tr><td>Finland</td><td>89</td><td>2</td></tr>
         <tr><td>New Zealand</td><td>88</td><td>3</td></tr>
