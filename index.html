@@ -22,14 +22,13 @@
     }
     /* Header & Navigation */
     header {
+      position: relative; /* For absolute positioning of dropdown */
       background-color: #fff;
       border-bottom: 1px solid #eaeaea;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
       z-index: 100;
     }
     .logo {
@@ -68,33 +67,31 @@
       display: inline-block;
     }
     .dropbtn {
-      cursor: default; /* Not clickable */
+      cursor: pointer; /* Clickable to toggle dropdown */
       font-weight: 500;
       font-size: 0.95rem;
     }
     .dropdown-content {
       display: none;
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #fff;
+      top: 100%; /* Start at the bottom of header */
+      left: 2rem;  /* Align with header's left padding */
+      right: 2rem; /* Align with header's right padding */
+      background-color: #0070f3;
       min-width: 150px;
       box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      z-index: 1;
+      z-index: 200;
     }
     .dropdown-content a {
-      color: #222;
+      color: #fff;
       padding: 0.5rem 1rem;
       text-decoration: none;
       display: block;
       font-size: 0.95rem;
+      text-align: center;
     }
     .dropdown-content a:hover {
-      background-color: #0070f3;
-      color: #fff;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
+      background-color: #005bb5;
     }
     /* Main Content */
     main {
@@ -131,6 +128,7 @@
     </div>
     <nav class="nav-left">
       <div class="dropdown">
+        <!-- "Solutions" is a non-clickable element used to trigger the dropdown -->
         <span class="dropbtn">Solutions</span>
         <div class="dropdown-content">
           <a href="model.html">Our Model</a>
@@ -152,7 +150,8 @@
     <h1>Welcome to Nixer</h1>
     <p>Your minimalist hub for business intelligence and risk assessment.</p>
     <p>
-      Explore our solutions using the navigation above. Learn more about our unique model, verify businesses and domains, and discover how we apply cutting-edge risk analysis in today's market.
+      Explore our solutions using the navigation above. Learn more about our unique model,
+      verify businesses and domains, and discover how we apply cutting-edge risk analysis in today's market.
     </p>
   </main>
 
@@ -160,5 +159,24 @@
   <footer>
     &copy; 2025 Nixer. All rights reserved.
   </footer>
+  
+  <!-- JavaScript to toggle dropdown on click -->
+  <script>
+    // Toggle the dropdown when the Solutions button is clicked
+    document.querySelector('.dropbtn').addEventListener('click', function(event) {
+      event.stopPropagation(); // Prevent click from bubbling up
+      var dropdownContent = document.querySelector('.dropdown-content');
+      if (dropdownContent.style.display === 'block') {
+        dropdownContent.style.display = 'none';
+      } else {
+        dropdownContent.style.display = 'block';
+      }
+    });
+    
+    // Hide the dropdown when clicking outside
+    document.addEventListener('click', function() {
+      document.querySelector('.dropdown-content').style.display = 'none';
+    });
+  </script>
 </body>
 </html>
