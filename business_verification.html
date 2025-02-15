@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nixer | Business Verification</title>
+  <!-- Include Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <!-- Include Montserrat from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+    /* Map container takes 70% of width */
+    #map {
+      width: 70%;
+      height: 100%;
+    }
+    /* Sidebar takes 30% of width */
+    .sidebar {
+      width: 30%;
+      padding: 1rem;
+      background: #f9f9f9;
+      overflow-y: auto;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    }
+    .sidebar h2 {
+      margin-top: 0;
+    }
+    .sidebar label {
+      font-weight: 600;
+      display: block;
+      margin-top: 1rem;
+    }
+    select, input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    button {
+      width: 100%;
+      padding: 0.7rem;
+      background-color: #0070f3;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #005bb5;
+    }
+  </style>
+</head>
+<body>
+  <!-- Map Container -->
+  <div id="map"></div>
+  
+  <!-- Sidebar Container -->
+  <div class="sidebar">
+    <h2>Business Verification</h2>
+    <!-- Region Selection -->
+    <div class="region-select">
+      <label for="regionSelect">Select Region:</label>
+      <select id="regionSelect">
+        <option value="">-- Choose Region --</option>
+        <option value="LATAM">LATAM</option>
+        <option value="NA">North America</option>
+        <option value="EMEA">EMEA</option>
+        <option value="APAC">APAC</option>
+      </select>
+    </div>
+    <!-- Country Selection (initially hidden) -->
+    <div class="country-select" id="countrySelectDiv" style="display:none;">
+      <label for="countrySelect">Select Country:</label>
+      <select id="countrySelect">
+        <!-- Options populated dynamically -->
+      </select>
+    </div>
+    <!-- Business Verification Form (initially hidden) -->
+    <div class="verification-form" id="verificationFormDiv" style="display:none;">
+      <label for="businessName">Business Name:</label>
+      <input type="text" id="businessName" placeholder="Enter business name">
+      <button id="verifyButton">Verify Business</button>
+    </div>
+  </div>
+  
+  <!-- Include Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Initialize Leaflet map
+    var map = L.map('map').setView([20, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+    
+    // Sample regions with centroids, zoom levels, colors, and countries (sample data)
+    var regions = {
+      "LATAM": { center: [-15, -60], zoom: 3, color: "#e74c3c", countries: ["Brazil", "Argentina", "Chile", "Colombia", "Peru"] },
+      "NA": { center: [40, -100], zoom: 3, color: "#3498db", countries: ["United States", "Canada", "Mexico"] },
+      "EMEA": { center: [50, 10], zoom: 4, color: "#2ecc71", countries: ["United Kingdom", "Germany", "France", "Spain", "Italy"] },
+      "APAC": { center: [15, 100], zoom: 3, color: "#9b59b6", countries: ["China", "Japan", "India", "Australia", "South Korea"] }
+    };
+
+    // Populate country dropdown and update map when a region is selected
+    document.getElementById("regionSelect").addEventListener("change", function() {
+      var region = this.value;
+      var countrySelectDiv = document.getElementById("countrySelectDiv");
+      var countrySelect = document.getElementById("countrySelect");
+      // Clear any previous options
+      countrySelect.innerHTML = "<option value=''>-- Choose Country --</option>";
+      
+      if (region && regions[region]) {
+        // Zoom map to region's center and set zoom level
+        map.setView(regions[region].center, regions[region].zoom);
+        
+        // (Optional) Color-code the map by region here if you add polygons or markers
+        
+        // Populate country dropdown for the selected region
+        regions[region].countries.forEach(function(country) {
+          var option = document.createElement("option");
+          option.value = country;
+          option.textContent = country;
+          countrySelect.appendChild(option);
+        });
+        countrySelectDiv.style.display = "block";
+      } else {
+        countrySelectDiv.style.display = "none";
+      }
+      // Hide verification form when region changes
+      document.getElementById("verificationFormDiv").style.display = "none";
+    });
+
+    // When a country is selected, show the verification form
+    document.getElementById("countrySelect").addEventListener("change", function() {
+      if (this.value) {
+        document.getElementById("verificationFormDiv").style.display = "block";
+      } else {
+        document.getElementById("verificationFormDiv").style.display = "none";
+      }
+    });
+
+    // Dummy verification function when verify button is clicked
+    document.getElementById("verifyButton").addEventListener("click", function() {
+      var businessName = document.getElementById("businessName").value;
+      var selectedCountry = document.getElementById("countrySelect").value;
+      if (businessName && selectedCountry) {
+        // In production, use fuzzy matching logic and call the respective API based on selected region and country.
+        alert("Verifying business '" + businessName + "' in " + selectedCountry + ".\n(This would query the business registry API for that country.)");
+      } else {
+        alert("Please enter a business name and select a country.");
+      }
+    });
+  </script>
+</body>
+</html>
