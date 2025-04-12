@@ -1,25 +1,20 @@
-<!-- blog.html (visual blog feed style with image left, text right) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nixer | Insights</title>
+  <title>Nixer | Blogs</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
   <style>
-    body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background: #fff; color: #222; }
-    header, footer { padding: 1rem 2rem; border-bottom: 1px solid #eee; }
-    nav { display: flex; gap: 1.5rem; align-items: center; justify-content: flex-end; }
-    nav a { text-decoration: none; color: #222; font-weight: 500; }
-    nav a:hover { color: #0070f3; }
-    .logo img { height: 60px; display: block; }
-    main { padding: 3rem 2rem; max-width: 1000px; margin: auto; }
-    h1 { text-align: center; margin-bottom: 2rem; }
     .blog-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
     }
     .post-card {
       display: flex;
@@ -58,18 +53,7 @@
       color: #0070f3;
       text-decoration: none;
     }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      border-top: 1px solid #eee;
-      margin-top: 4rem;
-    }
-    .social-icons a {
-      margin: 0 0.5rem;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
+
     @media (max-width: 768px) {
       .post-card {
         flex-direction: column;
@@ -82,39 +66,13 @@
   </style>
 </head>
 <body>
-  <header style="display:flex; justify-content:space-between; align-items:center">
+
+  <header>
     <div class="logo">
-      <a href="index.html"><img src="nixerBlackFont.png" alt="Nixer logo"></a>
+      <a href="index.html"><img src="images/nixerBlackFont.png" alt="Nixer logo"></a>
     </div>
     <nav>
-      <a href="blog.html">Insights</a>
+      <a href="blog.html">Blogs</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="https://nixer.beehiiv.com/subscribe" target="_blank">📝 Subscribe</a>
-    </nav>
-  </header>
-  <main>
-    <h1>Insights</h1>
-    <div class="blog-grid">
-      <div class="post-card">
-        <img src="../images/trump-tariff.jpg" alt="Trump tariffs image" />
-        <div class="post-content">
-          <p class="date">April 4, 2025</p>
-          <h2>Trump’s New Tariffs: Trade Policy or Power Play?</h2>
-          <p>Trump lit the match. New tariffs. Global backlash. Markets in freefall. I spent this week digging into what these “Liberation Day” tariffs actually mean, from the headlines to the historical echoes. Trump’s tariffs aren’t just policy — they’re a signal. And the markets got the message.</p>
-          <a href="posts/2025-04-04-tariffs.html">Read more →</a>
-        </div>
-      </div>
-    </div>
-  </main>
-  <footer>
-    &copy; 2025 Nixer. All rights reserved.<br>
-    <div class="social-icons" style="margin-top: 1rem;">
-      <a href="https://www.instagram.com/nixer.ai" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.linkedin.com/company/nixer-ai/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://twitter.com/YOUR_HANDLE" target="_blank"><i class="fab fa-x-twitter"></i></a>
-      <a href="https://www.threads.net/@YOUR_HANDLE" target="_blank"><i class="fab fa-threads"></i></a>
-    </div>
-  </footer>
-</body>
-</html>
+      <a href="https://nixer.beehiiv.com/subscribe" target="_blank">_
