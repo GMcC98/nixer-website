@@ -8,17 +8,30 @@
   <style>
     body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 2rem; background: #fff; color: #222; line-height: 1.6; }
     header, footer { text-align: center; margin-bottom: 2rem; }
-    img { max-width: 100%; border-radius: 8px; margin-bottom: 2rem; }
+    img { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 2rem; display: block; max-height: 400px; object-fit: cover; }
     h1 { font-size: 2rem; margin-bottom: 1rem; }
     .date { color: #666; font-size: 0.9rem; margin-bottom: 1rem; }
     .nixer-take { margin-top: 3rem; padding: 1rem; border-left: 4px solid #0070f3; background: #f5f8ff; }
     section { margin-top: 3rem; }
     ul { padding-left: 1.2rem; line-height: 1.7; }
+    nav { display: flex; gap: 1.5rem; align-items: center; justify-content: flex-end; padding: 1rem 2rem; border-bottom: 1px solid #eee; }
+    nav a { text-decoration: none; color: #222; font-weight: 500; }
+    nav a:hover { color: #0070f3; }
+    .logo img { height: 60px; display: block; margin-right: auto; }
+    .nav-container { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; }
   </style>
 </head>
 <body>
-  <header>
-    <a href="../templates/index.html">← Back to Home</a>
+  <header class="nav-container">
+    <div class="logo">
+      <a href="../templates/index.html"><img src="../nixerBlackFont.png" alt="Nixer logo"></a>
+    </div>
+    <nav>
+      <a href="../templates/blog.html">Insights</a>
+      <a href="../templates/about.html">About</a>
+      <a href="../templates/contact.html">Contact</a>
+      <a href="https://nixer.beehiiv.com/subscribe" target="_blank">📝 Subscribe</a>
+    </nav>
   </header>
 
   <h1>Trump’s New Tariffs: Trade Policy or Power Play?</h1>
@@ -67,6 +80,7 @@
   </section>
 
   <footer>
+    <p><a href="../templates/blog.html">← Back to Blogs</a></p>
     <p>📬 Want more like this? <a href="https://nixer.beehiiv.com/subscribe" target="_blank">Subscribe to the Nixer Brief</a></p>
   </footer>
 </body>
