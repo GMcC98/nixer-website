@@ -66,3 +66,10 @@ footer {
 .social-icons a:hover {
   color: #0070f3;
 }
+
+.summary {
+  font-size: 0.95rem;
+  margin: 0.75rem 0;
+  color: #333;
+  line-height: 1.6;
+}
